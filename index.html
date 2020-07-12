@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokemon Palette - Background Transition</title>
+
+    <style>
+      body {
+        height: 100vh;
+        margin: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 100px 1fr;
+        align-items: center;
+        justify-items: center;
+
+        --primary: #ffd924;
+        --secondary: #e5961d;
+        --tertiary: #cf4310;
+
+        transition: --primary 1s, --secondary 1s, --tertiary 1s;
+
+        background: linear-gradient(var(--primary), transparent),
+          linear-gradient(90deg, var(--secondary), transparent),
+          linear-gradient(-90deg, var(--tertiary), transparent);
+      }
+
+      body:hover {
+        --primary: #71bfb1;
+        --secondary: #5fa195;
+        --tertiary: #c55d00;
+      }
+
+      .palette {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 100px;
+        justify-self: stretch;
+      }
+
+      .palette .primary {
+        background-color: var(--primary);
+      }
+      .palette .secondary {
+        background-color: var(--secondary);
+      }
+      .palette .tertiary {
+        background-color: var(--tertiary);
+      }
+
+      input {
+        padding: 1em 2em;
+        font-size: 20px;
+        /* border: none; */
+        outline: 0;
+        /* --bezel-width: 5;
+        --bezel-radius: 20px, 0, 0, 20px;
+        -webkit-mask: paint(bezel, filled);
+        background-image: paint(bezel, stroke); */
+      }
+
+      canvas {
+        display: block;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="palette">
+      <div class="primary"></div>
+      <div class="secondary"></div>
+      <div class="tertiary"></div>
+    </div>
+
+    <form action="" id="form">
+      <canvas id="canvas" width="100" height="100"></canvas>
+      <input
+        type="text"
+        placeholder="Name or ID"
+        name="id"
+        autocomplete="off"
+        autofocus
+      />
+    </form>
+
+    <script src="app.js"></script>
+  </body>
+</html>
